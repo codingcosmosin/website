@@ -1,9 +1,9 @@
 {
-  "name": "coding-cosmos-static",
+  "name": "website",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://ashutoshbhadauria.github.io/coding-cosmos-static/",
+  "homepage": "https://codingcosmosin.github.io/website/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
