@@ -12,15 +12,15 @@ function App() {
       </div>
       <h1>Coding Cosmos</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        {/* <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
-        </button>
+        </button> */}
         <p>
-          Coming Soon...
+          Coming Soon: Your ultimate resource for mastering code and technology.
         </p>
       </div>
       <p className="read-the-docs">
-        Site under development...
+        We're building something amazing! Get ready for a new way to learn technical skills.
       </p>
     </>
   )
