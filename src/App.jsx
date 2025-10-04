@@ -1,30 +1,36 @@
-import { useState } from 'react'
-import ccLogo from './assets/ccLogo.png'
 import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AuthProvider, useAuth } from "./context/AuthContext";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home";
+
+function PrivateRoute({ children }) {
+  const { user } = useAuth();
+  return user ? children : <Login />;
+}
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <img src={ccLogo} className="logo" alt="React logo" />
-      </div>
-      <h1>Coding Cosmos</h1>
-      <div className="card">
-        <button 
-          onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSdI4Yw6LOW8SqJ-4tNzVkMmUDHpSDZYKt2fvT1sVUujKsCN2w/viewform?usp=header", "_blank")}
-        >
-          Register
-        </button>
-        <p>
-          Coming Soon: Your ultimate resource for mastering code and technology.
-        </p>
-      </div>
-      <p className="read-the-docs">
-        We're building something amazing! Get ready for a new way to learn technical skills.
-      </p>
-    </>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </Router>
+    </AuthProvider>
   )
 }
 
