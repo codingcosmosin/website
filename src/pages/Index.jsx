@@ -153,8 +153,12 @@ function CoursesSection() {
 }
 
 export default function Index() {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div>
+    <div style={{ paddingTop: '56px' }}>
       {/* Navbar: icon left, menu right */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
         <div className="container-fluid">
